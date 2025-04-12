@@ -1,0 +1,3 @@
+[submodule "extern/Imath"]
+	path = extern/Imath
+	url = https://github.com/AcademySoftwareFoundation/Imath.git
