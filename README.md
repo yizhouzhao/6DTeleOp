@@ -1,1 +1,3 @@
 # 6DTeleOp
+
+## install opencv 

@@ -31,4 +31,6 @@
 *.out
 *.app
 
+*DS_*
+
 build/

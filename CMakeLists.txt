@@ -7,15 +7,16 @@ project(6DTeleop)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+# Enable building the Imath library from the submodule
+set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build static libraries" FORCE)
+set(IMATH_INSTALL_PKG_CONFIG OFF CACHE BOOL "Install pkg-config files" FORCE)
+set(IMATH_INSTALL_SYM_LINK OFF CACHE BOOL "Create symlinks for Imath includes" FORCE)
 
-# Find all .cpp and .h files under src/
-file(GLOB_RECURSE SOURCES
-    src/*.cpp
-    src/*.h
-)
+# Add Imath as a subdirectory
+add_subdirectory(extern/Imath)
 
-# Add executable
-add_executable(${PROJECT_NAME} ${SOURCES})
+find_package(OpenCV REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
 
-# (Optional) If you have additional include directories, you can add:
-# target_include_directories(${PROJECT_NAME} PRIVATE include)
+# Add our source directory
+add_subdirectory(src)
