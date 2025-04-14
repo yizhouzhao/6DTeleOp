@@ -1,5 +1,4 @@
 #include "aruco.h"
-#include <opencv2/opencv.hpp>
 
 void processImage(cv::Mat& image) {
     // Implementation
@@ -15,4 +14,11 @@ cv::Mat createGradient(int width, int height) {
         }
     }
     return gradient;
+}
+
+cv::Mat genereteMaker(int index = 23) {
+    cv::Mat makerImage;
+    cv::aruco::Dictionary dictionary = cv::aruco::getPredefinedDictionary(cv::aruco::DICT_6X6_250);
+    cv::aruco::generateImageMarker(dictionary, index, 200, makerImage, 1);
+    return makerImage;
 }

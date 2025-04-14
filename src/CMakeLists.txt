@@ -3,7 +3,7 @@ add_executable(6DTeleOp main.cpp aruco.cpp)
 
 # Link against Imath
 target_link_libraries(6DTeleOp PRIVATE 
-    Imath
+    Imath::Imath
     ${OpenCV_LIBS}
 )
 
